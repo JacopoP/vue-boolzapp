@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(212,219,217);
+    background: linear-gradient(0deg, rgb(212,219,217) 0%, rgb(212,219,217) 85%, rgb(0,150,136) 85%);
+    height: 100vh;
+    padding: 15px 0;
+}
+
+#app{
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1115px;
+    display: flex;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#app > *{
+    height: 100%;
+}
+
+#container-preview{
+    width: 390px;
+}
+
+#user-header{
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    border-right: 2px solid rgb(212,219,217);
+}
+
+#user{
+    display: flex;
+    align-items: center;
+}
+
+#user-settings{
+    color: #b1b1b1;
+}
+
+#container-chat{
+    flex-grow: 1;
+}
+
+#container-chat header{
+    background-color: #eaeaea;
+    height: 50px;
+}
+
+img.avatar{
+    height: 35px;
+    width: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
