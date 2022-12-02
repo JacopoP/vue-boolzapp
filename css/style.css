@@ -127,7 +127,9 @@ body{
 }
 
 .chat-preview .last-msg{
-    max-width: 250px;
+    display: inline-block;
+    width: 250px;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
