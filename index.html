@@ -16,15 +16,61 @@
                     <img class="avatar" src="imgs/avatar_1.jpg" alt="">
                     Sofia
                 </div>
-                <div id="user-settings">
+                <div class="settings">
                     <i class="fa-solid fa-circle-notch"></i> &nbsp; &nbsp;
                     <i class="fa-solid fa-message"></i> &nbsp; &nbsp;
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
+            <div id="notification-cta">
+                <div id="note-bell">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div id="note-txt">
+                    Ricevi notifiche di nuovi messaggi <br>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <div id="search">
+                <label for="search-bar"><i class="fa-solid fa-magnifying-glass"></i></label>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <div class="chat-preview">
+                <img src="imgs/avatar_2.jpg" class="avatar" alt="">
+                <div class="chat-info">
+                    Michele <br>
+                    <span class="last-msg">Ultimo messaggio</span>
+                </div>
+                <div class="date">2022</div>
+            </div>
         </div>
         <div id="container-chat">
-            <header></header>
+            <header>
+                <div id="chatter">
+                    <img class="avatar" src="imgs/avatar_3.jpg" alt="">
+                    Pippo
+                </div>
+                <div class="settings">
+                    <i class="fa-solid fa-magnifying-glass"></i> &nbsp; &nbsp;
+                    <i class="fa-solid fa-paperclip"></i> &nbsp; &nbsp;
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+            <div id="chat">
+                <div class="msg-recieved">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi unde, aliquam molestiae rerum vel accusantium deserunt cupiditate sapiente esse, quos soluta omnis doloribus temporibus dicta eos commodi, aperiam atque quibusdam?</p>
+                    <div class="msg-time">15:00</div>
+                </div>
+                <div class="msg-sent">
+                    <p>Aria</p>
+                    <div class="msg-time">15:10</div>
+                </div>
+            </div>
+            <div id="write-bar">
+                <div id="emojy"><i class="fa-solid fa-face-smile"></i></div>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <div id="vocal"><i class="fa-solid fa-microphone"></i></div>
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
