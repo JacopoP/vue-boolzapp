@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+var DateTime = luxon.DateTime;
 
 createApp({
     data(){
@@ -178,15 +179,17 @@ createApp({
         sendMessage: function(){
             if(this.newMessage != ''){
                 const chat=this.contacts[this.activeChat];
+                let dt = DateTime.now();
                 chat.messages.push({
-                    date: '',
+                    date: `${dt.day}/${dt.month}/${dt.year} ${dt.hour}:${dt.minute}:${dt.second}`,
                     message: this.newMessage,
                     status: 'sent'
                 });
                 this.newMessage = '';
                 setTimeout(function(){
+                    dt = DateTime.now();
                     chat.messages.push({
-                        date: '',
+                        date: `${dt.day}/${dt.month}/${dt.year} ${dt.hour}:${dt.minute}:${dt.second}`,
                         message: 'ok',
                         status: 'received'
                     }); 
