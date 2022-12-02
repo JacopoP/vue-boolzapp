@@ -167,11 +167,31 @@ createApp({
                 }
             ],            
             activeChat: 0,
+            newMessage: '',
         }
     },
     methods: {
         changeChat: function(i){
             this.activeChat = i;
+        },
+
+        sendMessage: function(){
+            if(this.newMessage != ''){
+                const chat=this.contacts[this.activeChat];
+                chat.messages.push({
+                    date: '',
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = '';
+                setTimeout(function(){
+                    chat.messages.push({
+                        date: '',
+                        message: 'ok',
+                        status: 'received'
+                    }); 
+                },1000);
+            }
         }
     }
 }).mount("#app");

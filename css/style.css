@@ -201,6 +201,7 @@ body{
 
 #write-bar input{
     flex-grow: 1;
+    padding: 5px;
 }
 
 img.avatar{
