@@ -10,7 +10,7 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" @click="hideDelMenu">
         <div id="container-preview">
             <div id="user-header">
                 <div id="user">
@@ -42,9 +42,9 @@
                         <img :src="'imgs/avatar' + contact.avatar + '.jpg'" class="avatar" alt="">
                         <div class="chat-info">
                             {{contact.name}} <br>
-                            <span class="last-msg">{{contact.messages[contact.messages.length - 1].message}}</span>
+                            <span v-if="contact.messages.length > 0" class="last-msg">{{contact.messages[contact.messages.length - 1].message}}</span>
                         </div>
-                        <div class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
+                        <div v-if="contact.messages.length > 0" class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
                     </div>
                 </div>                
             </div>
@@ -65,6 +65,10 @@
                 <div v-for="(message, index) in contacts[activeChat].messages" :class="message.status === 'sent' ? 'msg-sent' : 'msg-recieved'">
                     <p>{{message.message}}</p>
                     <div class="msg-time">{{message.date}}</div>
+                    <div class="delate-show" @click="showDelMenu(index + 1)"><i class="fa-solid fa-angle-down"></i></div>
+                    <ul class="delate-menu">
+                        <li @click="delMsg(index)">Cancella messaggio</li>
+                    </ul>
                 </div>
             </div>
             <div id="write-bar">

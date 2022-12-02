@@ -196,6 +196,16 @@ createApp({
                     }); 
                 },1000);
             }
+        },
+
+        showDelMenu: function(i){
+            setTimeout(function(){
+                document.querySelector(`[class*='msg-']:nth-of-type(${i}) .delate-menu`).classList.toggle('show');
+            },0);
+        },
+
+        delMsg: function(i){
+            this.contacts[this.activeChat].messages.splice(i, 1);
         }
     },
     watch: {      
@@ -212,5 +222,13 @@ createApp({
                 contact.visible = check;
             })
         }  
+    },
+    mounted(){
+        document.onclick = function(){
+            const elToHide = document.getElementsByClassName('show');
+            for(let i=0; i<elToHide.length; i++){
+                elToHide[i].classList.remove('show');
+            }
+        }
     }
 }).mount("#app");

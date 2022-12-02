@@ -172,6 +172,15 @@ body{
     margin-bottom: 5px;
 }
 
+[class*="msg-"] p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[class*="msg-"]:hover .delate-show{
+    display: block;
+}
+
 .msg-sent{
     background-color: #d5f9ba;
     margin-right: 0;
@@ -180,6 +189,38 @@ body{
 
 .msg-recieved{
     background-color: #fff;
+}
+
+.delate-show{
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -55%);
+    right: 5px;
+    cursor: pointer;
+}
+
+.delate-menu{
+    display: none;
+    list-style: none;
+    position: absolute;
+    bottom: -10px;
+    right: 12px;
+    background-color: #fff;
+    z-index: 100;
+}
+
+.delate-menu li{
+    cursor: pointer;
+    padding: 5px 4px;
+}
+
+.delate-menu li:hover{
+    background-color: #eaeaea;
+}
+
+.delate-menu.show{
+    display: block;
 }
 
 .msg-time{
