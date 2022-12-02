@@ -162,6 +162,7 @@ body{
 [class*="msg-"]{
     padding: 10px;
     padding-right: 25px;
+    padding-bottom: 15px;
     position: relative;
     border-radius: 5px;
     width: 225px;
@@ -183,7 +184,7 @@ body{
     font-size: .5rem;
     color: #b1b1b1;
     position: absolute;
-    bottom: -10px;
+    bottom: -17px;
     right: -20px;
     width: fit-content;
 }
