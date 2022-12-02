@@ -96,9 +96,15 @@ body{
     outline: none;
 }
 
+#chat-preview-container{
+    overflow-y: auto;
+    height: calc(100% - 145px);
+}
+
 .chat-preview{
     display: flex;
     align-items: flex-start;
+    position: relative;
     padding: 7px 13px;
     cursor: pointer;
     font-size: .9rem;
@@ -117,10 +123,18 @@ body{
 .chat-preview .last-msg, .chat-preview .date{
     font-size: .7rem;
     color: #b1b1b1;
+    white-space: nowrap;
+}
+
+.chat-preview .last-msg{
+    max-width: 250px;
+    text-overflow: ellipsis;
 }
 
 .chat-preview .date{
-    margin-left: auto;
+    position: absolute;
+    top: 7px;
+    right: 13px;
 }
 
 #container-chat{

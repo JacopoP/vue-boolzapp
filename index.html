@@ -35,13 +35,15 @@
                 <label for="search-bar"><i class="fa-solid fa-magnifying-glass"></i></label>
                 <input type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
-            <div class="chat-preview">
-                <img src="imgs/avatar_2.jpg" class="avatar" alt="">
-                <div class="chat-info">
-                    Michele <br>
-                    <span class="last-msg">Ultimo messaggio</span>
+            <div id="chat-preview-container">
+                <div class="chat-preview" v-for="contact in contacts">
+                    <img :src="'imgs/avatar' + contact.avatar + '.jpg'" class="avatar" alt="">
+                    <div class="chat-info">
+                        {{contact.name}} <br>
+                        <span class="last-msg">{{contact.messages[contact.messages.length - 1].message}}</span>
+                    </div>
+                    <div class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
                 </div>
-                <div class="date">2022</div>
             </div>
         </div>
         <div id="container-chat">
