@@ -34,17 +34,19 @@
             </div>
             <div id="search">
                 <label for="search-bar"><i class="fa-solid fa-magnifying-glass"></i></label>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="chatFilter">
             </div>
             <div id="chat-preview-container">
-                <div class="chat-preview" v-for="(contact, index) in contacts" @click="changeChat(index)">
-                    <img :src="'imgs/avatar' + contact.avatar + '.jpg'" class="avatar" alt="">
-                    <div class="chat-info">
-                        {{contact.name}} <br>
-                        <span class="last-msg">{{contact.messages[contact.messages.length - 1].message}}</span>
+                <div v-for="(contact, index) in contacts">
+                    <div class="chat-preview" @click="changeChat(index)" v-if="contact.visible">
+                        <img :src="'imgs/avatar' + contact.avatar + '.jpg'" class="avatar" alt="">
+                        <div class="chat-info">
+                            {{contact.name}} <br>
+                            <span class="last-msg">{{contact.messages[contact.messages.length - 1].message}}</span>
+                        </div>
+                        <div class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
                     </div>
-                    <div class="date">{{contact.messages[contact.messages.length - 1].date}}</div>
-                </div>
+                </div>                
             </div>
         </div>
         <div id="container-chat">

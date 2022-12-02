@@ -169,6 +169,7 @@ createApp({
             ],            
             activeChat: 0,
             newMessage: '',
+            chatFilter: '',
         }
     },
     methods: {
@@ -196,5 +197,20 @@ createApp({
                 },1000);
             }
         }
+    },
+    watch: {      
+        chatFilter: function(){
+            const arrFilter=this.chatFilter.split('');
+            this.contacts.forEach((contact)=>{
+                let check = true;
+                arrFilter.forEach((letter)=>{
+                    console.log(letter);
+                    if(!contact.name.includes(letter)){
+                        check = false;
+                    }
+                })
+                contact.visible = check;
+            })
+        }  
     }
 }).mount("#app");
