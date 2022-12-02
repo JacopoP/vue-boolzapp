@@ -186,6 +186,7 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 });
+                // risposta
                 this.newMessage = '';
                 setTimeout(function(){
                     dt = DateTime.now();
@@ -212,14 +213,16 @@ createApp({
         chatFilter: function(){
             const arrFilter=this.chatFilter.split('');
             this.contacts.forEach((contact)=>{
-                let check = true;
+                contact.visible = true;
+                const checker = contact.name.split('');
                 arrFilter.forEach((letter)=>{
-                    console.log(letter);
-                    if(!contact.name.includes(letter)){
-                        check = false;
+                    if(!checker.includes(letter)){
+                        contact.visible = false;
+                    }
+                    else{
+                        checker.splice(checker.indexOf(letter),1)
                     }
                 })
-                contact.visible = check;
             })
         }  
     },

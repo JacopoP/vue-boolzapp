@@ -10,8 +10,10 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app" @click="hideDelMenu">
+    <div id="app">
+        <!-- parte sinistra app -->
         <div id="container-preview">
+            <!-- profilo -->
             <div id="user-header">
                 <div id="user">
                     <img class="avatar" src="imgs/avatar_io.jpg" alt="">
@@ -23,6 +25,7 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
+            <!-- cta ad attivare le notifiche -->
             <div id="notification-cta">
                 <div id="note-bell">
                     <i class="fa-solid fa-bell-slash"></i>
@@ -32,10 +35,12 @@
                     <a href="#">Attiva notifiche desktop</a>
                 </div>
             </div>
+            <!-- filtro ricerca contatti -->
             <div id="search">
                 <label for="search-bar"><i class="fa-solid fa-magnifying-glass"></i></label>
                 <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="chatFilter">
             </div>
+            <!-- preview delle chat e selezione chat -->
             <div id="chat-preview-container">
                 <div v-for="(contact, index) in contacts">
                     <div class="chat-preview" @click="changeChat(index)" v-if="contact.visible">
@@ -49,8 +54,10 @@
                 </div>                
             </div>
         </div>
+        <!-- parte destra dell'app -->
         <div id="container-chat">
             <header>
+                <!-- informazioni del contatto -->
                 <div id="chatter">
                     <img class="avatar" :src="'imgs/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
                     {{contacts[activeChat].name}}
@@ -61,6 +68,7 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
+            <!-- chat -->
             <div id="chat">
                 <div v-for="(message, index) in contacts[activeChat].messages" :class="message.status === 'sent' ? 'msg-sent' : 'msg-recieved'">
                     <p>{{message.message}}</p>
@@ -71,6 +79,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- barra scrittura messaggio -->
             <div id="write-bar">
                 <div id="emojy"><i class="fa-solid fa-face-smile"></i></div>
                 <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @KeyUp.enter="sendMessage">
